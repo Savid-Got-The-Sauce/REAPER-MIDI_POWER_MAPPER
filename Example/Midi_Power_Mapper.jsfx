@@ -2,7 +2,7 @@ desc:MIDI Power Mapper
 
 // =====================
 // This is a Velocity Mapper for Reaper. Have fun and do cool stuff!
-// Credit: $avids
+// Credit: $avid
 // =====================
 
 // =====================
@@ -77,7 +77,7 @@ loop(5,
 );
 
 // =====================
-// CURVE
+// CURVE (TRIMMED)
 // =====================
 gfx_set(1,1,1);
 
@@ -87,8 +87,15 @@ step = 1/(res-1);
 last_x = 0;
 
 k = slider1;
-y = (pow(1 + k, 0) - 1) / k;
-y = max(0, min(1, y));
+
+// first point
+raw = (pow(1 + k, 0) - 1) / k;
+raw = max(0, min(1, raw));
+
+// clamp in MIDI space
+midi = raw * 127;
+midi = max(vmin, min(vmax, midi));
+y = midi / 127;
 
 last_y = gfx_h - y * gfx_h;
 
@@ -97,9 +104,12 @@ loop(res,
 
   v = i * step;
 
-  k = slider1;
-  y = (pow(1 + k, v) - 1) / k;
-  y = max(0, min(1, y));
+  raw = (pow(1 + k, v) - 1) / k;
+  raw = max(0, min(1, raw));
+
+  midi = raw * 127;
+  midi = max(vmin, min(vmax, midi));
+  y = midi / 127;
 
   x = v * gfx_w;
   y = gfx_h - y * gfx_h;
@@ -124,13 +134,17 @@ gfx_line(0,y_floor,gfx_w,y_floor);
 gfx_line(0,y_ceil,gfx_w,y_ceil);
 
 // =====================
-// DOT
+// DOT (TRIMMED)
 // =====================
 in = last_in_vel;
 
 k = slider1;
-out = (pow(1 + k, in) - 1) / k;
-out = max(0, min(1, out));
+raw = (pow(1 + k, in) - 1) / k;
+raw = max(0, min(1, raw));
+
+midi = raw * 127;
+midi = max(vmin, min(vmax, midi));
+out = midi / 127;
 
 dot_x = in * gfx_w;
 dot_y = gfx_h - out * gfx_h;
@@ -150,4 +164,4 @@ gfx_printf("In: %d", floor(in*127+0.5));
 // mapped value (UNDER input)
 gfx_x = 10;
 gfx_y = 25;
-gfx_printf("Out: %d", vmin + floor(out*(vmax-vmin)+0.5));
+gfx_printf("Out: %d", floor(midi + 0.5));
