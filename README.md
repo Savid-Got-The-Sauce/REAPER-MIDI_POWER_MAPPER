@@ -1,23 +1,12 @@
-# ReaPack Repository Template
 
-A template for GitHub-hosted ReaPack repositories with automated
-[reapack-index](https://github.com/cfillion/reapack-index)
-running from GitHub Actions.
+An exponential velocity mapper JSFX for MIDI in Reaper.
+Import via ReaPack.
 
-Replace the name of the repository in [index.xml](/index.xml) when using this template.
-This will be the name shown in ReaPack.
+https://github.com/Savid-Got-The-Sauce/REAPER_MIDI_POWER_MAPPER/raw/master/index.xml
 
-```xml
-<index version="1" name="Name of your repository here">
-```
 
-Replace the contents of this file ([README.md](/README.md)).
-This will be the text shown when using ReaPack's "About this repository" feature.
+<img width="549" height="391" alt="MIDI Power Mapper" src="https://github.com/user-attachments/assets/d6a47d6f-8d34-4355-bf07-2ef69cfbd118" />
 
-reapack-index looks for package files in subfolders.
-The folder tree represents the package categories shown in ReaPack.
 
-Each package file is expected to begin with a metadata header.
-See [Packaging Documentation](https://github.com/cfillion/reapack-index/wiki/Packaging-Documentation) on reapack-index's wiki.
 
-The URL to import in ReaPack is [https://github.com/`<your username>`/`<repository name>`/raw/master/index.xml](https://github.com/cfillion/reapack-repository-template/raw/master/index.xml).
+<img width="1917" height="899" alt="Before and After" src="https://github.com/user-attachments/assets/ac490a53-5d1d-42da-b758-3d10a53cab6f" />
