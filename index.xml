@@ -7,8 +7,8 @@
 
       <version name="1.0" author="Savid" time="2026-04-19">
 
-        <source main="master">
-          https://raw.githubusercontent.com/Savid-Got-The-Sauce/REAPER-MIDI_POWER_MAPPER/master/Example/Midi_Power_Mapper.jsfx
+        <source main="main">
+          https://raw.githubusercontent.com/Savid-Got-The-Sauce/REAPER-MIDI_POWER_MAPPER/main/Example/Midi_Power_Mapper.jsfx
         </source>
 
       </version>
