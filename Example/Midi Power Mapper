@@ -1,0 +1,153 @@
+desc:MIDI Power Mapper
+
+// =====================
+// This is a Velocity Mapper for Reaper. Have fun and do cool stuff!
+// Credit: $avids
+// =====================
+
+// =====================
+// SLIDERS
+// =====================
+slider1:10<0.1,30,0.01>Curve Strength
+slider2:0<0,127,1>Velocity Floor
+slider3:127<0,127,1>Velocity Ceiling
+
+// =====================
+// INIT
+// =====================
+@init
+gfx_w = 400;
+gfx_h = 300;
+
+last_in_vel = 0;
+
+// =====================
+// RANGE
+// =====================
+@slider
+vmin = min(slider2, slider3);
+vmax = max(slider2, slider3);
+
+// =====================
+// MIDI PROCESSING
+// =====================
+@block
+while (
+  midirecv(offset, msg1, msg23) ?
+  (
+    status = msg1 & 0xF0;
+    note   = msg23 & 0x7F;
+    vel    = (msg23 / 256) & 0x7F;
+
+    (status == 0x90 && vel > 0) ? (
+      last_in_vel = vel / 127;
+    );
+
+    k = slider1;
+    out = (pow(1 + k, last_in_vel) - 1) / k;
+    out = max(0, min(1, out));
+
+    newvel = vmin + out * (vmax - vmin);
+    newvel = floor(newvel + 0.5);
+    newvel = max(vmin, min(vmax, newvel));
+
+    msg23 = note | (newvel << 8);
+
+    midisend(offset, msg1, msg23);
+  );
+);
+
+// =====================
+// GRAPHICS
+// =====================
+@gfx
+
+gfx_set(0.12,0.12,0.12);
+gfx_rect(0,0,gfx_w,gfx_h);
+
+// grid
+gfx_set(0.25,0.25,0.25);
+
+i = 0;
+loop(5,
+  p = i/5;
+  gfx_line(p*gfx_w,0,p*gfx_w,gfx_h);
+  gfx_line(0,p*gfx_h,gfx_w,p*gfx_h);
+  i += 1;
+);
+
+// =====================
+// CURVE
+// =====================
+gfx_set(1,1,1);
+
+res = 16;
+step = 1/(res-1);
+
+last_x = 0;
+
+k = slider1;
+y = (pow(1 + k, 0) - 1) / k;
+y = max(0, min(1, y));
+
+last_y = gfx_h - y * gfx_h;
+
+i = 1;
+loop(res,
+
+  v = i * step;
+
+  k = slider1;
+  y = (pow(1 + k, v) - 1) / k;
+  y = max(0, min(1, y));
+
+  x = v * gfx_w;
+  y = gfx_h - y * gfx_h;
+
+  gfx_line(last_x + 0.5, last_y + 0.5, x + 0.5, y + 0.5);
+
+  last_x = x;
+  last_y = y;
+
+  i += 1;
+);
+
+// =====================
+// FLOOR / CEILING
+// =====================
+gfx_set(0.6,0.6,0.6);
+
+y_floor = gfx_h - (vmin/127)*gfx_h;
+y_ceil  = gfx_h - (vmax/127)*gfx_h;
+
+gfx_line(0,y_floor,gfx_w,y_floor);
+gfx_line(0,y_ceil,gfx_w,y_ceil);
+
+// =====================
+// DOT
+// =====================
+in = last_in_vel;
+
+k = slider1;
+out = (pow(1 + k, in) - 1) / k;
+out = max(0, min(1, out));
+
+dot_x = in * gfx_w;
+dot_y = gfx_h - out * gfx_h;
+
+gfx_set(1,1,1);
+gfx_circle(dot_x,dot_y,3,1);
+
+// =====================
+// TEXT (FIXED POSITIONING)
+// =====================
+
+// input value (top-left)
+gfx_x = 10;
+gfx_y = 10;
+gfx_printf("In: %d", floor(in*127+0.5));
+
+// mapped value (UNDER input)
+gfx_x = 10;
+gfx_y = 25;
+gfx_printf("Out: %d", vmin + floor(out*(vmax-vmin)+0.5));
