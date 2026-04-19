@@ -17,7 +17,7 @@ Markdown
 ]]></description>
       </metadata>
       <version name="1.0" author="Savid" time="2026-04-19">
-        <source main="main">https://github.com/cfillion/reapack-repository-template/raw/58a3e39ba95bd0f35846aa1f39aa4cb2574295e1/Example/cfillion_Hello%20world.lua</source>
+        <source main="main">https://github.com/Savid-Got-The-Sauce/REAPER-MIDI_POWER_MAPPER/blob/master/Example/Midi%20Power%20Mapper002</source>
       </version>
     </reapack>
   </category>
