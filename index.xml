@@ -1,32 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="Savid JSFX Repository">
-
-  <category name="MIDI">
-
-    <reapack name="Midi Power Mapper" type="jsfx" desc="Exponential Velocity Mapper">
-
-      <metadata>
-        <description>
-          Exponential velocity mapper JSFX for shaping MIDI input dynamics.
-        </description>
-      </metadata>
-
-      <version name="1.0" author="Savid" time="2026-04-19">
-
-        <source main="main">
-          https://github.com/Savid-Got-The-Sauce/REAPER-MIDI_POWER_MAPPER/raw/master/Example/Midi_Power_Mapper.jsfx
-        </source>
-
-      </version>
-
-    </reapack>
-
-  </category>
-
-  <metadata>
-    <description>
-      JSFX collection for MIDI processing and audio effects.
-    </description>
-  </metadata>
-
-</index>
+<reapack name="Midi Power Mapper" type="jsfx">
+  <version name="1.0">
+    <source main="main">
+      https://github.com/Savid-Got-The-Sauce/REAPER-MIDI_POWER_MAPPER/raw/master/Example/Midi_Power_Mapper.jsfx
+    </source>
+  </version>
+</reapack>
