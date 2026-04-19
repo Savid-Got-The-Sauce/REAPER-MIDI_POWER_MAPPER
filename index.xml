@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <index version="1" name="Savid JSFX">
 
-  <category name="script">
+  <category name="MIDI">
 
     <reapack name="Midi Power Mapper" type="jsfx" desc="Exponential Velocity Mapper">
 
       <version name="1.0" author="Savid" time="2026-04-19">
 
-        <source main="master">
+        <source main="main">
           https://raw.githubusercontent.com/Savid-Got-The-Sauce/REAPER-MIDI_POWER_MAPPER/main/Example/Midi_Power_Mapper.jsfx
         </source>
 
