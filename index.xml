@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="Savid" commit="58a3e39ba95bd0f35846aa1f39aa4cb2574295e1">
+<index version="1" name="Savid" commit="master">
   <category name="Example">
     <reapack name="Midi_Power_Mapper.jsfx" type="script" desc="Exponential Velocity Mapper">
       <metadata>
@@ -17,8 +17,8 @@ Markdown
 ]]></description>
       </metadata>
       <version name="1.0" author="Savid" time="2021-01-04T23:30:32Z">
-        <source main="main">https://github.com/cfillion/reapack-repository-template/raw/58a3e39ba95bd0f35846aa1f39aa4cb2574295e1/Example/Midi_Power_Mapper.jsfx</source>
-      </version>
+        <source main="main">https://github.com/Savid-Got-The-Sauce/REAPER-MIDI_POWER_MAPPER/raw/master/Example/Midi_Power_Mapper.jsfx</source>
+      </version>            
     </reapack>
   </category>
   <metadata>
