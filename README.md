@@ -2,7 +2,7 @@
 An exponential velocity mapper JSFX for MIDI in Reaper.
 Import via ReaPack.
 
-https://github.com/Savid-Got-The-Sauce/REAPER_MIDI_POWER_MAPPER/raw/master/index.xml
+https://github.com/Savid-Got-The-Sauce/REAPER-MIDI_POWER_MAPPER/raw/master/index.xml
 
 
 <img width="549" height="391" alt="MIDI Power Mapper" src="https://github.com/user-attachments/assets/d6a47d6f-8d34-4355-bf07-2ef69cfbd118" />
