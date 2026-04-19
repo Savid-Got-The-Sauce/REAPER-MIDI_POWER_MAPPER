@@ -17,7 +17,7 @@ Markdown
 ]]></description>
       </metadata>
       <version name="1.0" author="Savid" time="2026-04-19">
-        <source main="main">https://github.com/Savid-Got-The-Sauce/REAPER-MIDI_POWER_MAPPER/blob/master/Example/Midi_Power_Mapper.jsfx</source>
+        <source main="main">https://github.com/Savid-Got-The-Sauce/REAPER-MIDI_POWER_MAPPER/raw/master/Example/Midi_Power_Mapper.jsfx</source>
       </version>
     </reapack>
   </category>
